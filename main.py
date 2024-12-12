@@ -79,6 +79,7 @@ async def city(message: Message, state: FSMContext):
     INSERT INTO students (name, age, grade) VALUES (?, ?, ?)''', (user_data['name'], user_data['age'], user_data['grade']))
     conn.commit()
     conn.close()
+    await message.answer(f"Вы написали:\nИмя: {user_data.get('name')}\nВозраст: {user_data.get('age')}\nКласс: {user_data.get('grade')}")
 
 
 async def main():
